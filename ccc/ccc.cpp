@@ -56,6 +56,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	MSG msg;
 	HACCEL hAccelTable;
 
+	if(::FindWindow(_T("ccc"), NULL))
+	{
+		::MessageBox(NULL, _T("already exists"), _T("ccc"), MB_ICONERROR);
+		return EXIT_FAILURE;
+	}
+
 #ifdef _DEBUG
 	AllocConsole();
 	freopen( "CONOUT$",  "wt", stdout); 
